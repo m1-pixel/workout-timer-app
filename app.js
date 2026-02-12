@@ -1,12 +1,31 @@
+const EXERCISES = [
+  "Planken",
+  "Liegestütze",
+  "Situps",
+  "Kniebeugen",
+  "Ausfallschritte",
+  "Superman",
+  "Bergsteiger",
+  "Seitstütz",
+  "Rückenstrecker",
+  "Hüftbrücke",
+  "Schulter dehnen",
+  "Hüfte dehnen",
+  "Knie dehnen",
+  "Rücken dehnen",
+  "Arme dehnen",
+];
+
 const state = {
-  rounds: ["Übung 1", "Übung 2", "Übung 3"],
-  workDuration: 45,
-  restDuration: 15,
+  rounds: [],
+  workDuration: 50,
+  restDuration: 10,
   currentRoundIndex: 0,
   phase: "idle",
   remaining: 0,
   running: false,
   timerId: null,
+  wakeLock: null,
 };
 
 const el = {
@@ -21,8 +40,6 @@ const el = {
   toggleBtn: document.getElementById("toggleBtn"),
   skipBtn: document.getElementById("skipBtn"),
   resetBtn: document.getElementById("resetBtn"),
-  heroTimer: document.getElementById("heroTimer"),
-  heroRound: document.getElementById("heroRound"),
 };
 
 function clamp(value, min, max) {
@@ -67,9 +84,6 @@ function updateDisplay() {
   el.timer.textContent = formatTime(state.remaining);
   el.roundMeta.textContent = `Runde ${roundNumber} von ${totalRounds}`;
   el.toggleBtn.textContent = state.running ? "Pause" : "Start";
-
-  el.heroTimer.textContent = formatTime(state.remaining);
-  el.heroRound.textContent = state.phase === "idle" ? "Setup starten" : roundName;
 }
 
 function resetSession() {
@@ -98,6 +112,7 @@ function start() {
 function pause() {
   stopTimer();
   state.running = false;
+  releaseWakeLock();
   updateDisplay();
 }
 
@@ -112,6 +127,7 @@ function toggleRunning() {
 function startTimer() {
   stopTimer();
   state.running = true;
+  requestWakeLock();
   state.timerId = setInterval(tick, 1000);
   updateDisplay();
 }
@@ -139,11 +155,13 @@ function advance() {
     case "idle":
       state.phase = "work";
       state.remaining = state.workDuration;
+      vibrateShort();
       break;
     case "work":
       if (state.restDuration > 0) {
         state.phase = "rest";
         state.remaining = state.restDuration;
+        vibrateShort();
       } else {
         moveToNextRoundOrFinish();
       }
@@ -162,6 +180,7 @@ function moveToNextRoundOrFinish() {
     state.currentRoundIndex += 1;
     state.phase = "work";
     state.remaining = state.workDuration;
+    vibrateShort();
   } else {
     state.phase = "finished";
     state.remaining = 0;
@@ -173,7 +192,7 @@ function updateRoundCount(newValue) {
   const count = clamp(newValue, 1, 50);
   if (count > state.rounds.length) {
     for (let i = state.rounds.length; i < count; i += 1) {
-      state.rounds.push(`Übung ${i + 1}`);
+      state.rounds.push(pickExercise(i));
     }
   } else if (count < state.rounds.length) {
     state.rounds = state.rounds.slice(0, count);
@@ -234,6 +253,7 @@ function bindInputs() {
 }
 
 function init() {
+  seedExercises();
   renderRounds();
   initSteppers();
   bindInputs();
@@ -241,3 +261,42 @@ function init() {
 }
 
 init();
+
+function seedExercises() {
+  const shuffled = [...EXERCISES].sort(() => Math.random() - 0.5);
+  const count = Number(el.roundCount.value) || 10;
+  state.rounds = Array.from({ length: count }, (_, index) => shuffled[index % shuffled.length]);
+}
+
+function pickExercise(index) {
+  const pool = [...EXERCISES].sort(() => Math.random() - 0.5);
+  return pool[index % pool.length];
+}
+
+function vibrateShort() {
+  if (navigator.vibrate) {
+    navigator.vibrate(120);
+  }
+}
+
+async function requestWakeLock() {
+  if (!("wakeLock" in navigator)) return;
+  try {
+    state.wakeLock = await navigator.wakeLock.request("screen");
+  } catch (_) {
+    state.wakeLock = null;
+  }
+}
+
+function releaseWakeLock() {
+  if (state.wakeLock) {
+    state.wakeLock.release();
+    state.wakeLock = null;
+  }
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible" && state.running) {
+    requestWakeLock();
+  }
+});

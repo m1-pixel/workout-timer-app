@@ -8,27 +8,37 @@
 </head>
 <body>
   <div class="app">
-    <header class="hero">
+    <header class="hero minimal">
       <div>
         <p class="eyebrow">Workout Timer</p>
-        <h1>Intervalltraining ohne Umwege</h1>
-        <p class="sub">Lege Runden, Dauer und Pausen fest. Gib jeder Runde ihren Übungs‑Namen.</p>
-      </div>
-      <div class="hero-card">
-        <div class="chip">Bereit</div>
-        <div class="hero-timer" id="heroTimer">00:00</div>
-        <div class="hero-round" id="heroRound">Setup starten</div>
+        <h1>Intervalltraining kompakt</h1>
+        <p class="sub">Zeit, Übung und Buttons sofort sichtbar. Setup folgt darunter.</p>
       </div>
     </header>
 
     <main class="layout">
+      <section class="panel run">
+        <div class="status">
+          <div class="badge" id="phaseBadge">Bereit</div>
+          <div class="round-name" id="currentRound">Übung 1</div>
+          <div class="timer" id="timer">00:00</div>
+          <div class="meta" id="roundMeta">Runde 1 von 10</div>
+        </div>
+
+        <div class="controls">
+          <button id="toggleBtn" class="primary">Start</button>
+          <button id="skipBtn">Weiter</button>
+          <button id="resetBtn">Reset</button>
+        </div>
+      </section>
+
       <section class="panel">
         <h2>Setup</h2>
         <div class="field">
           <label for="roundCount">Rundenanzahl</label>
           <div class="stepper">
             <button type="button" data-step="-1" aria-label="Runden verringern">-</button>
-            <input id="roundCount" type="number" min="1" max="50" value="3" />
+            <input id="roundCount" type="number" min="1" max="50" value="10" />
             <button type="button" data-step="1" aria-label="Runden erhöhen">+</button>
           </div>
         </div>
@@ -37,7 +47,7 @@
           <label>Rundendauer (Sek.)</label>
           <div class="stepper">
             <button type="button" data-step-work="-5">-</button>
-            <input id="workDuration" type="number" min="5" max="1800" step="5" value="45" />
+            <input id="workDuration" type="number" min="5" max="1800" step="5" value="50" />
             <button type="button" data-step-work="5">+</button>
           </div>
         </div>
@@ -46,7 +56,7 @@
           <label>Pausenzeit (Sek.)</label>
           <div class="stepper">
             <button type="button" data-step-rest="-5">-</button>
-            <input id="restDuration" type="number" min="0" max="1800" step="5" value="15" />
+            <input id="restDuration" type="number" min="0" max="1800" step="5" value="10" />
             <button type="button" data-step-rest="5">+</button>
           </div>
         </div>
@@ -54,22 +64,6 @@
         <div class="field">
           <label>Runden‑Namen</label>
           <div class="rounds" id="rounds"></div>
-        </div>
-      </section>
-
-      <section class="panel run">
-        <h2>Workout</h2>
-        <div class="status">
-          <div class="badge" id="phaseBadge">Bereit</div>
-          <div class="round-name" id="currentRound">Übung 1</div>
-          <div class="timer" id="timer">00:00</div>
-          <div class="meta" id="roundMeta">Runde 1 von 3</div>
-        </div>
-
-        <div class="controls">
-          <button id="toggleBtn" class="primary">Start</button>
-          <button id="skipBtn">Weiter</button>
-          <button id="resetBtn">Reset</button>
         </div>
       </section>
     </main>

@@ -2,12 +2,10 @@
 
 :root {
   --bg: #f4efe8;
-  --ink: #1a1a1a;
-  --accent: #e86a33;
-  --accent-dark: #b14a22;
-  --panel: #fffaf3;
-  --line: #eadfce;
-  --chip: #1f2937;
+  --ink: #141414;
+  --accent: #1f2937;
+  --accent-quiet: #f7f2ea;
+  --line: #e8ddcc;
   --muted: #6b5b4d;
 }
 
@@ -16,100 +14,70 @@
 body {
   margin: 0;
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  background: radial-gradient(circle at top, #fff6e9 0%, #f4efe8 45%, #efe5d8 100%);
+  background: #f4efe8;
   color: var(--ink);
 }
 
 .app {
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 32px 20px 48px;
+  padding: 24px 18px 40px;
 }
 
 .hero {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
+}
+
+.hero.minimal h1 {
+  font-size: clamp(22px, 4vw, 32px);
+  margin: 0 0 6px;
 }
 
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--muted);
-  margin: 0 0 8px;
-}
-
-.hero h1 {
-  font-size: clamp(28px, 4vw, 44px);
-  margin: 0 0 12px;
+  margin: 0 0 6px;
 }
 
 .sub {
   margin: 0;
   color: var(--muted);
-  max-width: 36ch;
-}
-
-.hero-card {
-  border: 2px solid var(--line);
-  background: var(--panel);
-  border-radius: 20px;
-  padding: 24px;
-  display: grid;
-  gap: 12px;
-  box-shadow: 0 20px 40px rgba(26, 26, 26, 0.08);
-}
-
-.chip {
-  display: inline-flex;
-  padding: 6px 12px;
-  background: var(--chip);
-  color: #fff;
-  border-radius: 999px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-
-.hero-timer {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 40px;
-}
-
-.hero-round {
-  color: var(--muted);
+  max-width: 42ch;
 }
 
 .layout {
   display: grid;
-  gap: 24px;
+  gap: 16px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .panel {
-  background: var(--panel);
-  border: 2px solid var(--line);
-  border-radius: 18px;
-  padding: 20px;
+  background: #fffaf3;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
   display: grid;
-  gap: 16px;
+  gap: 14px;
 }
 
 .panel h2 {
   margin: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
 }
 
 .field {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .stepper {
   display: grid;
-  grid-template-columns: 44px 1fr 44px;
+  grid-template-columns: 42px 1fr 42px;
   gap: 8px;
   align-items: center;
 }
@@ -117,15 +85,15 @@ body {
 .stepper input {
   width: 100%;
   padding: 10px 12px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid var(--line);
   background: #fff;
   font-size: 16px;
 }
 
 .stepper button {
-  height: 44px;
-  border-radius: 12px;
+  height: 42px;
+  border-radius: 10px;
   border: 1px solid var(--line);
   background: #fff;
   font-size: 18px;
@@ -140,71 +108,74 @@ body {
 .rounds input {
   width: 100%;
   padding: 10px 12px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid var(--line);
 }
 
 .run {
-  min-height: 380px;
+  min-height: 340px;
 }
 
 .status {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   text-align: center;
 }
 
 .badge {
   align-self: center;
   justify-self: center;
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-radius: 999px;
-  background: var(--chip);
+  background: var(--accent);
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .round-name {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 600;
 }
 
 .timer {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 64px;
+  font-size: 60px;
 }
 
 .meta {
   color: var(--muted);
+  font-size: 13px;
 }
 
 .controls {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .controls button {
-  border-radius: 14px;
+  border-radius: 12px;
   border: 1px solid var(--line);
   padding: 12px 14px;
   background: #fff;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
 }
 
 .controls .primary {
   background: var(--accent);
   color: #fff;
-  border-color: var(--accent-dark);
+  border-color: var(--accent);
 }
 
 .controls .primary:hover {
-  background: var(--accent-dark);
+  background: #111827;
 }
 
 @media (max-width: 640px) {
-  .app { padding: 24px 16px 40px; }
-  .timer { font-size: 54px; }
+  .layout { grid-template-columns: 1fr; }
+  .panel { padding: 14px; }
+  .timer { font-size: 52px; }
+  .run { min-height: 320px; }
 }
