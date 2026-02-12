@@ -18,75 +18,91 @@ const EXERCISES = [
 
 const ICONS = {
   plank: `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="18" cy="16" r="6"></circle>
-      <path d="M22 22 L40 30 L56 30"></path>
-      <path d="M30 28 L24 44"></path>
-      <path d="M38 30 L34 46"></path>
-      <path d="M10 48 H58"></path>
+    <svg viewBox="0 0 96 96" aria-hidden="true">
+      <circle cx="20" cy="26" r="7"></circle>
+      <path d="M26 30 L50 40"></path>
+      <path d="M50 40 L78 42"></path>
+      <path d="M44 38 L36 64"></path>
+      <path d="M62 40 L56 66"></path>
+      <path d="M10 72 H86"></path>
     </svg>
   `,
   pushup: `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="16" cy="20" r="5"></circle>
-      <path d="M21 24 L40 28 L54 28"></path>
-      <path d="M30 30 L26 42"></path>
-      <path d="M38 30 L34 44"></path>
-      <path d="M8 48 H56"></path>
+    <svg viewBox="0 0 96 96" aria-hidden="true">
+      <circle cx="22" cy="30" r="6"></circle>
+      <path d="M28 34 L54 40"></path>
+      <path d="M54 40 L80 40"></path>
+      <path d="M46 42 L40 66"></path>
+      <path d="M62 42 L58 68"></path>
+      <path d="M10 74 H86"></path>
     </svg>
   `,
   situp: `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="24" cy="20" r="5"></circle>
-      <path d="M28 24 L40 34"></path>
-      <path d="M30 36 L22 46"></path>
-      <path d="M40 34 L52 38"></path>
-      <path d="M10 50 H54"></path>
+    <svg viewBox="0 0 96 96" aria-hidden="true">
+      <circle cx="30" cy="28" r="6"></circle>
+      <path d="M34 34 L52 48"></path>
+      <path d="M52 48 L72 56"></path>
+      <path d="M40 52 L28 70"></path>
+      <path d="M10 74 H86"></path>
     </svg>
   `,
   squat: `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="32" cy="12" r="6"></circle>
-      <path d="M32 18 L32 34"></path>
-      <path d="M32 34 L20 44"></path>
-      <path d="M32 34 L44 44"></path>
-      <path d="M12 52 H52"></path>
+    <svg viewBox="0 0 96 96" aria-hidden="true">
+      <circle cx="48" cy="18" r="7"></circle>
+      <path d="M48 26 L48 46"></path>
+      <path d="M48 46 L34 58"></path>
+      <path d="M48 46 L62 58"></path>
+      <path d="M34 58 L30 72"></path>
+      <path d="M62 58 L66 72"></path>
+      <path d="M16 78 H80"></path>
     </svg>
   `,
   lunge: `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="28" cy="14" r="6"></circle>
-      <path d="M28 20 L32 34"></path>
-      <path d="M32 34 L46 40"></path>
-      <path d="M30 34 L22 50"></path>
-      <path d="M10 52 H54"></path>
+    <svg viewBox="0 0 96 96" aria-hidden="true">
+      <circle cx="36" cy="20" r="7"></circle>
+      <path d="M36 28 L40 46"></path>
+      <path d="M40 46 L62 54"></path>
+      <path d="M38 46 L28 70"></path>
+      <path d="M18 78 H84"></path>
     </svg>
   `,
   back: `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="20" cy="20" r="5"></circle>
-      <path d="M24 24 C30 28 38 32 46 28"></path>
-      <path d="M26 28 L20 44"></path>
-      <path d="M38 30 L42 46"></path>
-      <path d="M10 50 H54"></path>
+    <svg viewBox="0 0 96 96" aria-hidden="true">
+      <circle cx="26" cy="28" r="6"></circle>
+      <path d="M30 34 C40 42 56 46 70 42"></path>
+      <path d="M34 40 L28 62"></path>
+      <path d="M58 44 L64 66"></path>
+      <path d="M14 74 H82"></path>
     </svg>
   `,
   climber: `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="18" cy="16" r="5"></circle>
-      <path d="M22 20 L34 28 L48 22"></path>
-      <path d="M30 28 L22 40"></path>
-      <path d="M36 28 L40 44"></path>
-      <path d="M8 48 H56"></path>
+    <svg viewBox="0 0 96 96" aria-hidden="true">
+      <circle cx="24" cy="22" r="6"></circle>
+      <path d="M30 26 L48 36"></path>
+      <path d="M48 36 L68 30"></path>
+      <path d="M40 38 L30 56"></path>
+      <path d="M54 38 L60 62"></path>
+      <path d="M12 74 H84"></path>
     </svg>
   `,
   stretch: `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="22" cy="16" r="5"></circle>
-      <path d="M22 22 L34 30"></path>
-      <path d="M34 30 L50 26"></path>
-      <path d="M30 34 L22 48"></path>
-      <path d="M10 50 H54"></path>
+    <svg viewBox="0 0 96 96" aria-hidden="true">
+      <circle cx="30" cy="18" r="6"></circle>
+      <path d="M30 24 L48 32"></path>
+      <path d="M48 32 L68 24"></path>
+      <path d="M40 36 L30 58"></path>
+      <path d="M12 74 H84"></path>
+    </svg>
+  `,
+  sleep: `
+    <svg viewBox="0 0 96 96" aria-hidden="true">
+      <path d="M18 58 C28 46 44 42 58 46 C66 48 74 54 78 62"></path>
+      <circle cx="22" cy="54" r="6"></circle>
+      <path d="M26 56 L40 60"></path>
+      <path d="M10 76 H86"></path>
+      <path d="M62 20 H76"></path>
+      <path d="M60 26 H78"></path>
+      <path d="M64 14 H74"></path>
     </svg>
   `,
 };
@@ -101,6 +117,7 @@ const state = {
   running: false,
   timerId: null,
   wakeLock: null,
+  audioCtx: null,
 };
 
 const el = {
@@ -131,7 +148,7 @@ function updateDisplay() {
   const roundNumber = Math.min(state.currentRoundIndex + 1, totalRounds);
 
   el.currentRound.textContent = roundName;
-  el.exerciseIcon.innerHTML = iconFor(roundName);
+  el.exerciseIcon.innerHTML = iconFor(roundName, state.phase);
   el.timer.textContent = formatTime(state.remaining);
   el.roundMeta.textContent = `${roundNumber} von ${totalRounds}`;
   el.toggleBtn.textContent = state.running ? "Pause" : "Start";
@@ -203,7 +220,7 @@ function tick() {
 
 function advance() {
   if (state.phase === "work" || state.phase === "rest") {
-    vibrateShort();
+    notifyTransition();
   }
   switch (state.phase) {
     case "idle":
@@ -294,7 +311,10 @@ function bindInputs() {
     resetSession();
   });
 
-  el.toggleBtn.addEventListener("click", toggleRunning);
+  el.toggleBtn.addEventListener("click", () => {
+    ensureAudio();
+    toggleRunning();
+  });
   el.resetBtn.addEventListener("click", resetSession);
 }
 
@@ -318,7 +338,8 @@ function pickExercise(index) {
   return pool[index % pool.length];
 }
 
-function iconFor(name) {
+function iconFor(name, phase) {
+  if (phase === "rest") return ICONS.sleep;
   const lowered = name.toLowerCase();
   if (lowered.includes("plank") || lowered.includes("stütz")) return ICONS.plank;
   if (lowered.includes("liegest")) return ICONS.pushup;
@@ -336,6 +357,44 @@ function vibrateShort() {
   if (navigator.vibrate) {
     navigator.vibrate(100);
   }
+}
+
+function ensureAudio() {
+  if (!state.audioCtx) {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    state.audioCtx = new AudioCtx();
+  }
+  if (state.audioCtx.state === "suspended") {
+    state.audioCtx.resume();
+  }
+}
+
+function playClick() {
+  if (!state.audioCtx) return;
+  const osc = state.audioCtx.createOscillator();
+  const gain = state.audioCtx.createGain();
+  osc.type = "square";
+  osc.frequency.value = 950;
+  gain.gain.setValueAtTime(0.001, state.audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.12, state.audioCtx.currentTime + 0.01);
+  gain.gain.exponentialRampToValueAtTime(0.001, state.audioCtx.currentTime + 0.08);
+  osc.connect(gain).connect(state.audioCtx.destination);
+  osc.start();
+  osc.stop(state.audioCtx.currentTime + 0.09);
+}
+
+function flashBorder() {
+  document.body.classList.remove("flash");
+  void document.body.offsetWidth;
+  document.body.classList.add("flash");
+  setTimeout(() => document.body.classList.remove("flash"), 350);
+}
+
+function notifyTransition() {
+  vibrateShort();
+  playClick();
+  flashBorder();
 }
 
 async function requestWakeLock() {
