@@ -18,103 +18,117 @@ const EXERCISES = [
 
 const ICONS = {
   plank: `
-    <svg class="icon plank" viewBox="0 0 96 96" aria-hidden="true">
-      <circle class="joint" cx="16" cy="26" r="6"></circle>
-      <path class="torso" d="M22 30 L46 36 L80 38"></path>
-      <path class="arm" d="M30 34 L26 56"></path>
-      <path class="arm" d="M40 36 L36 60"></path>
-      <path class="leg" d="M56 38 L52 64"></path>
-      <path class="leg" d="M66 38 L64 66"></path>
-      <path d="M8 72 H88"></path>
+    <svg class="icon plank" viewBox="0 0 120 120" aria-hidden="true">
+      <path class="ground" d="M8 96 H112"></path>
+      <circle class="skin" cx="26" cy="40" r="9"></circle>
+      <path class="hair" d="M18 36 C22 30 30 30 34 36"></path>
+      <path d="M32 46 L62 52 L98 54"></path>
+      <path class="skin" d="M44 52 L38 76"></path>
+      <path class="skin" d="M56 54 L52 80"></path>
+      <path class="cloth" d="M58 52 L74 56 L72 66 L56 62 Z"></path>
+      <path class="skin" d="M76 56 L72 86"></path>
+      <path class="skin" d="M88 56 L90 88"></path>
     </svg>
   `,
   pushup: `
-    <svg class="icon pushup" viewBox="0 0 96 96" aria-hidden="true">
-      <circle class="joint" cx="22" cy="30" r="6"></circle>
-      <path class="torso" d="M28 34 L52 40 L80 44"></path>
-      <path class="arm" d="M34 38 L30 60"></path>
-      <path class="arm" d="M44 40 L40 64"></path>
-      <path class="leg" d="M60 44 L58 68"></path>
-      <path class="leg" d="M68 44 L70 70"></path>
-      <path d="M10 74 H86"></path>
+    <svg class="icon pushup" viewBox="0 0 120 120" aria-hidden="true">
+      <path class="ground" d="M8 96 H112"></path>
+      <circle class="skin" cx="28" cy="50" r="9"></circle>
+      <path class="hair" d="M20 46 C24 40 32 40 36 46"></path>
+      <path d="M36 56 L66 60 L98 64"></path>
+      <path class="skin" d="M46 60 L42 82"></path>
+      <path class="skin" d="M56 62 L54 86"></path>
+      <path class="cloth" d="M58 60 L76 64 L74 74 L56 70 Z"></path>
+      <path class="skin" d="M78 64 L76 90"></path>
+      <path class="skin" d="M88 66 L90 92"></path>
     </svg>
   `,
   situp: `
-    <svg class="icon situp" viewBox="0 0 96 96" aria-hidden="true">
-      <circle class="joint" cx="30" cy="28" r="6"></circle>
-      <path class="torso" d="M34 34 L52 48 L72 54"></path>
-      <path class="arm" d="M40 38 L50 30"></path>
-      <path class="leg" d="M40 52 L30 68"></path>
-      <path class="leg" d="M54 56 L44 70"></path>
-      <path d="M12 74 H86"></path>
+    <svg class="icon situp" viewBox="0 0 120 120" aria-hidden="true">
+      <path class="ground" d="M8 96 H112"></path>
+      <circle class="skin" cx="44" cy="44" r="9"></circle>
+      <path class="hair" d="M36 40 C40 34 48 34 52 40"></path>
+      <path class="skin" d="M50 50 L68 66"></path>
+      <path class="cloth" d="M54 54 L70 68 L62 76 L46 62 Z"></path>
+      <path class="skin" d="M40 58 L30 74"></path>
+      <path class="skin" d="M60 70 L50 86"></path>
+      <path d="M68 66 L94 74"></path>
     </svg>
   `,
   squat: `
-    <svg class="icon squat" viewBox="0 0 96 96" aria-hidden="true">
-      <circle class="joint" cx="48" cy="18" r="7"></circle>
-      <path class="torso" d="M48 26 L48 44"></path>
-      <path class="arm" d="M48 34 L36 30"></path>
-      <path class="arm" d="M48 34 L60 30"></path>
-      <path class="leg" d="M48 44 L30 58"></path>
-      <path class="leg" d="M48 44 L66 58"></path>
-      <path d="M34 58 L30 72"></path>
-      <path d="M62 58 L66 72"></path>
-      <path d="M16 78 H80"></path>
+    <svg class="icon squat" viewBox="0 0 120 120" aria-hidden="true">
+      <path class="ground" d="M8 96 H112"></path>
+      <circle class="skin" cx="72" cy="28" r="9"></circle>
+      <path class="hair" d="M64 24 C68 18 76 18 80 24"></path>
+      <path class="skin" d="M72 36 L72 56"></path>
+      <path class="skin" d="M72 44 L50 42"></path>
+      <path class="skin" d="M72 44 L94 42"></path>
+      <path class="cloth" d="M64 56 L80 56 L82 70 L62 70 Z"></path>
+      <path class="skin" d="M62 70 L44 84"></path>
+      <path class="skin" d="M82 70 L96 84"></path>
     </svg>
   `,
   lunge: `
-    <svg class="icon lunge" viewBox="0 0 96 96" aria-hidden="true">
-      <circle class="joint" cx="32" cy="20" r="7"></circle>
-      <path class="torso" d="M32 28 L38 46"></path>
-      <path class="arm" d="M34 34 L22 38"></path>
-      <path class="arm" d="M36 34 L50 36"></path>
-      <path class="leg" d="M38 46 L62 52"></path>
-      <path class="leg" d="M36 46 L26 72"></path>
-      <path d="M14 78 H88"></path>
+    <svg class="icon lunge" viewBox="0 0 120 120" aria-hidden="true">
+      <path class="ground" d="M8 96 H112"></path>
+      <circle class="skin" cx="48" cy="30" r="9"></circle>
+      <path class="hair" d="M40 26 C44 20 52 20 56 26"></path>
+      <path class="skin" d="M48 38 L54 60"></path>
+      <path class="skin" d="M50 44 L32 48"></path>
+      <path class="skin" d="M50 44 L68 46"></path>
+      <path class="cloth" d="M50 58 L66 62 L62 74 L46 70 Z"></path>
+      <path class="skin" d="M54 62 L84 70"></path>
+      <path class="skin" d="M50 62 L36 90"></path>
     </svg>
   `,
   back: `
-    <svg class="icon back" viewBox="0 0 96 96" aria-hidden="true">
-      <circle class="joint" cx="26" cy="28" r="6"></circle>
-      <path class="torso" d="M30 34 C40 42 58 48 72 44"></path>
-      <path class="arm" d="M34 40 L28 60"></path>
-      <path class="arm" d="M46 44 L40 66"></path>
-      <path class="leg" d="M56 46 L62 68"></path>
-      <path class="leg" d="M66 46 L74 70"></path>
-      <path d="M14 74 H82"></path>
+    <svg class="icon back" viewBox="0 0 120 120" aria-hidden="true">
+      <path class="ground" d="M8 96 H112"></path>
+      <circle class="skin" cx="28" cy="52" r="8"></circle>
+      <path class="hair" d="M22 48 C26 42 32 42 36 48"></path>
+      <path class="skin" d="M36 56 C50 66 72 70 92 64"></path>
+      <path class="skin" d="M48 66 L38 86"></path>
+      <path class="skin" d="M66 70 L60 90"></path>
+      <path class="cloth" d="M58 66 L76 70 L74 84 L56 80 Z"></path>
     </svg>
   `,
   climber: `
-    <svg class="icon climber" viewBox="0 0 96 96" aria-hidden="true">
-      <circle class="joint" cx="22" cy="22" r="6"></circle>
-      <path class="torso" d="M28 26 L44 36"></path>
-      <path class="arm" d="M30 30 L18 36"></path>
-      <path class="arm" d="M40 36 L54 30"></path>
-      <path class="leg" d="M38 38 L26 56"></path>
-      <path class="leg" d="M52 38 L58 62"></path>
-      <path d="M12 74 H84"></path>
+    <svg class="icon climber" viewBox="0 0 120 120" aria-hidden="true">
+      <path class="ground" d="M8 96 H112"></path>
+      <circle class="skin" cx="34" cy="32" r="8"></circle>
+      <path class="hair" d="M28 28 C32 22 38 22 42 28"></path>
+      <path class="skin" d="M40 38 L60 52"></path>
+      <path class="skin" d="M42 40 L26 52"></path>
+      <path class="skin" d="M54 48 L72 44"></path>
+      <path class="cloth" d="M52 50 L68 54 L64 66 L48 62 Z"></path>
+      <path class="skin" d="M52 60 L36 80"></path>
+      <path class="skin" d="M66 60 L76 84"></path>
     </svg>
   `,
   stretch: `
-    <svg class="icon stretch" viewBox="0 0 96 96" aria-hidden="true">
-      <circle class="joint" cx="30" cy="18" r="6"></circle>
-      <path class="torso" d="M30 24 L52 34"></path>
-      <path class="arm" d="M40 28 L60 18"></path>
-      <path class="arm" d="M40 30 L58 36"></path>
-      <path class="leg" d="M42 38 L30 60"></path>
-      <path class="leg" d="M56 40 L46 62"></path>
-      <path d="M12 74 H84"></path>
+    <svg class="icon stretch" viewBox="0 0 120 120" aria-hidden="true">
+      <path class="ground" d="M8 96 H112"></path>
+      <circle class="skin" cx="46" cy="26" r="8"></circle>
+      <path class="hair" d="M40 22 C44 16 52 16 56 22"></path>
+      <path class="skin" d="M46 34 L70 44"></path>
+      <path class="skin" d="M54 38 L80 26"></path>
+      <path class="skin" d="M54 40 L78 46"></path>
+      <path class="cloth" d="M58 46 L74 50 L70 62 L54 58 Z"></path>
+      <path class="skin" d="M58 60 L46 82"></path>
+      <path class="skin" d="M70 60 L60 84"></path>
     </svg>
   `,
   sleep: `
-    <svg class="icon sleep" viewBox="0 0 96 96" aria-hidden="true">
-      <path d="M16 58 C28 46 46 42 60 46 C70 48 78 56 80 64"></path>
-      <circle class="joint" cx="20" cy="54" r="6"></circle>
-      <path class="arm" d="M26 56 L42 60"></path>
-      <path d="M10 76 H86"></path>
-      <path d="M64 16 H76"></path>
-      <path d="M60 24 H80"></path>
-      <path d="M66 8 H74"></path>
+    <svg class="icon sleep" viewBox="0 0 120 120" aria-hidden="true">
+      <path class="ground" d="M8 96 H112"></path>
+      <path d="M18 70 C34 54 58 50 76 56 C90 60 100 72 102 84"></path>
+      <circle class="skin" cx="28" cy="66" r="8"></circle>
+      <path class="hair" d="M22 62 C26 56 34 56 38 62"></path>
+      <path class="skin" d="M36 68 L54 72"></path>
+      <path class="cloth" d="M52 70 L74 74 L72 86 L50 82 Z"></path>
+      <path d="M80 22 H96"></path>
+      <path d="M78 30 H100"></path>
+      <path d="M86 14 H96"></path>
     </svg>
   `,
 };
