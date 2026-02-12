@@ -19,21 +19,21 @@ const EXERCISES = [
 const ICONS = {
   plank: `
     <svg viewBox="0 0 96 96" aria-hidden="true">
-      <circle cx="20" cy="26" r="7"></circle>
-      <path d="M26 30 L50 40"></path>
-      <path d="M50 40 L78 42"></path>
-      <path d="M44 38 L36 64"></path>
-      <path d="M62 40 L56 66"></path>
-      <path d="M10 72 H86"></path>
+      <circle cx="16" cy="26" r="7"></circle>
+      <path d="M22 30 L44 36"></path>
+      <path d="M44 36 L80 38"></path>
+      <path d="M40 36 L32 62"></path>
+      <path d="M56 38 L50 64"></path>
+      <path d="M8 72 H88"></path>
     </svg>
   `,
   pushup: `
     <svg viewBox="0 0 96 96" aria-hidden="true">
       <circle cx="22" cy="30" r="6"></circle>
-      <path d="M28 34 L54 40"></path>
-      <path d="M54 40 L80 40"></path>
-      <path d="M46 42 L40 66"></path>
-      <path d="M62 42 L58 68"></path>
+      <path d="M28 34 L48 40"></path>
+      <path d="M48 40 L78 44"></path>
+      <path d="M40 42 L34 62"></path>
+      <path d="M58 44 L56 68"></path>
       <path d="M10 74 H86"></path>
     </svg>
   `,
@@ -41,17 +41,17 @@ const ICONS = {
     <svg viewBox="0 0 96 96" aria-hidden="true">
       <circle cx="30" cy="28" r="6"></circle>
       <path d="M34 34 L52 48"></path>
-      <path d="M52 48 L72 56"></path>
-      <path d="M40 52 L28 70"></path>
-      <path d="M10 74 H86"></path>
+      <path d="M52 48 L70 56"></path>
+      <path d="M40 52 L30 68"></path>
+      <path d="M12 74 H86"></path>
     </svg>
   `,
   squat: `
     <svg viewBox="0 0 96 96" aria-hidden="true">
       <circle cx="48" cy="18" r="7"></circle>
       <path d="M48 26 L48 46"></path>
-      <path d="M48 46 L34 58"></path>
-      <path d="M48 46 L62 58"></path>
+      <path d="M48 46 L30 56"></path>
+      <path d="M48 46 L66 56"></path>
       <path d="M34 58 L30 72"></path>
       <path d="M62 58 L66 72"></path>
       <path d="M16 78 H80"></path>
@@ -59,50 +59,50 @@ const ICONS = {
   `,
   lunge: `
     <svg viewBox="0 0 96 96" aria-hidden="true">
-      <circle cx="36" cy="20" r="7"></circle>
-      <path d="M36 28 L40 46"></path>
-      <path d="M40 46 L62 54"></path>
-      <path d="M38 46 L28 70"></path>
-      <path d="M18 78 H84"></path>
+      <circle cx="32" cy="20" r="7"></circle>
+      <path d="M32 28 L36 46"></path>
+      <path d="M36 46 L60 52"></path>
+      <path d="M34 46 L26 72"></path>
+      <path d="M14 78 H88"></path>
     </svg>
   `,
   back: `
     <svg viewBox="0 0 96 96" aria-hidden="true">
       <circle cx="26" cy="28" r="6"></circle>
-      <path d="M30 34 C40 42 56 46 70 42"></path>
-      <path d="M34 40 L28 62"></path>
-      <path d="M58 44 L64 66"></path>
+      <path d="M30 34 C40 42 58 48 72 44"></path>
+      <path d="M34 40 L30 62"></path>
+      <path d="M56 46 L62 68"></path>
       <path d="M14 74 H82"></path>
     </svg>
   `,
   climber: `
     <svg viewBox="0 0 96 96" aria-hidden="true">
-      <circle cx="24" cy="22" r="6"></circle>
-      <path d="M30 26 L48 36"></path>
-      <path d="M48 36 L68 30"></path>
-      <path d="M40 38 L30 56"></path>
-      <path d="M54 38 L60 62"></path>
+      <circle cx="22" cy="22" r="6"></circle>
+      <path d="M28 26 L44 36"></path>
+      <path d="M44 36 L70 30"></path>
+      <path d="M38 38 L26 56"></path>
+      <path d="M52 38 L58 62"></path>
       <path d="M12 74 H84"></path>
     </svg>
   `,
   stretch: `
     <svg viewBox="0 0 96 96" aria-hidden="true">
       <circle cx="30" cy="18" r="6"></circle>
-      <path d="M30 24 L48 32"></path>
-      <path d="M48 32 L68 24"></path>
-      <path d="M40 36 L30 58"></path>
+      <path d="M30 24 L50 32"></path>
+      <path d="M50 32 L70 24"></path>
+      <path d="M42 36 L30 60"></path>
       <path d="M12 74 H84"></path>
     </svg>
   `,
   sleep: `
     <svg viewBox="0 0 96 96" aria-hidden="true">
-      <path d="M18 58 C28 46 44 42 58 46 C66 48 74 54 78 62"></path>
-      <circle cx="22" cy="54" r="6"></circle>
-      <path d="M26 56 L40 60"></path>
+      <path d="M16 58 C28 46 46 42 60 46 C70 48 78 56 80 64"></path>
+      <circle cx="20" cy="54" r="6"></circle>
+      <path d="M26 56 L42 60"></path>
       <path d="M10 76 H86"></path>
-      <path d="M62 20 H76"></path>
-      <path d="M60 26 H78"></path>
-      <path d="M64 14 H74"></path>
+      <path d="M64 16 H76"></path>
+      <path d="M60 24 H80"></path>
+      <path d="M66 8 H74"></path>
     </svg>
   `,
 };
@@ -126,6 +126,7 @@ const el = {
   restDuration: document.getElementById("restDuration"),
   currentRound: document.getElementById("currentRound"),
   exerciseIcon: document.getElementById("exerciseIcon"),
+  flashOverlay: document.getElementById("flashOverlay"),
   timer: document.getElementById("timer"),
   roundMeta: document.getElementById("roundMeta"),
   toggleBtn: document.getElementById("toggleBtn"),
@@ -322,6 +323,7 @@ function init() {
   seedExercises();
   initSteppers();
   bindInputs();
+  unlockAudioOnGesture();
   updateDisplay();
 }
 
@@ -385,16 +387,27 @@ function playClick() {
 }
 
 function flashBorder() {
-  document.body.classList.remove("flash");
-  void document.body.offsetWidth;
-  document.body.classList.add("flash");
-  setTimeout(() => document.body.classList.remove("flash"), 350);
+  if (!el.flashOverlay) return;
+  el.flashOverlay.classList.remove("active");
+  void el.flashOverlay.offsetWidth;
+  el.flashOverlay.classList.add("active");
+  setTimeout(() => el.flashOverlay.classList.remove("active"), 300);
 }
 
 function notifyTransition() {
   vibrateShort();
   playClick();
   flashBorder();
+}
+
+function unlockAudioOnGesture() {
+  const unlock = () => {
+    ensureAudio();
+    window.removeEventListener("touchstart", unlock);
+    window.removeEventListener("pointerdown", unlock);
+  };
+  window.addEventListener("touchstart", unlock, { once: true, passive: true });
+  window.addEventListener("pointerdown", unlock, { once: true });
 }
 
 async function requestWakeLock() {
