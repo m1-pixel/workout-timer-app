@@ -20,20 +20,21 @@ body {
 
 .flash-overlay {
   position: fixed;
-  inset: 10px;
-  border-radius: 18px;
-  border: 3px solid #111827;
+  inset: 0;
+  border-radius: 0;
+  border: 0;
+  background: rgba(17, 24, 39, 0.18);
   opacity: 0;
   pointer-events: none;
   z-index: 50;
 }
 
 .flash-overlay.active {
-  animation: flashPulse 260ms ease-out;
+  animation: flashPulse 520ms ease-out;
 }
 
 @keyframes flashPulse {
-  0% { opacity: 0.9; }
+  0% { opacity: 0.85; }
   100% { opacity: 0; }
 }
 
@@ -138,6 +139,108 @@ body {
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.exercise-icon .joint {
+  fill: currentColor;
+  stroke: none;
+}
+
+.exercise-icon svg .arm,
+.exercise-icon svg .leg {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.exercise-icon[data-phase="work"] .icon.pushup .arm {
+  animation: pushupArm 1s ease-in-out infinite;
+}
+
+.exercise-icon[data-phase="work"] .icon.pushup .leg {
+  animation: pushupLeg 1s ease-in-out infinite;
+}
+
+.exercise-icon[data-phase="work"] .icon.plank .leg {
+  animation: plankLeg 1.2s ease-in-out infinite;
+}
+
+.exercise-icon[data-phase="work"] .icon.situp .arm,
+.exercise-icon[data-phase="work"] .icon.situp .leg {
+  animation: situpMove 1.1s ease-in-out infinite;
+}
+
+.exercise-icon[data-phase="work"] .icon.squat .leg {
+  animation: squatMove 1s ease-in-out infinite;
+}
+
+.exercise-icon[data-phase="work"] .icon.lunge .leg {
+  animation: lungeMove 1.2s ease-in-out infinite;
+}
+
+.exercise-icon[data-phase="work"] .icon.climber .arm,
+.exercise-icon[data-phase="work"] .icon.climber .leg {
+  animation: climberMove 0.9s ease-in-out infinite alternate;
+}
+
+.exercise-icon[data-phase="work"] .icon.stretch .arm {
+  animation: stretchMove 1.4s ease-in-out infinite;
+}
+
+.exercise-icon[data-phase="rest"] .icon.sleep {
+  animation: sleepBob 1.6s ease-in-out infinite;
+}
+
+@keyframes pushupArm {
+  0% { transform: rotate(4deg); }
+  50% { transform: rotate(-8deg); }
+  100% { transform: rotate(4deg); }
+}
+
+@keyframes pushupLeg {
+  0% { transform: rotate(-2deg); }
+  50% { transform: rotate(6deg); }
+  100% { transform: rotate(-2deg); }
+}
+
+@keyframes plankLeg {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes situpMove {
+  0% { transform: rotate(-6deg); }
+  50% { transform: rotate(8deg); }
+  100% { transform: rotate(-6deg); }
+}
+
+@keyframes squatMove {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes lungeMove {
+  0% { transform: rotate(-2deg); }
+  50% { transform: rotate(12deg); }
+  100% { transform: rotate(-2deg); }
+}
+
+@keyframes climberMove {
+  0% { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg); }
+}
+
+@keyframes stretchMove {
+  0% { transform: rotate(-6deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(-6deg); }
+}
+
+@keyframes sleepBob {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+  100% { transform: translateY(0); }
 }
 
 .timer {

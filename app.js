@@ -18,87 +18,99 @@ const EXERCISES = [
 
 const ICONS = {
   plank: `
-    <svg viewBox="0 0 96 96" aria-hidden="true">
-      <circle cx="16" cy="26" r="7"></circle>
-      <path d="M22 30 L44 36"></path>
-      <path d="M44 36 L80 38"></path>
-      <path d="M40 36 L32 62"></path>
-      <path d="M56 38 L50 64"></path>
+    <svg class="icon plank" viewBox="0 0 96 96" aria-hidden="true">
+      <circle class="joint" cx="16" cy="26" r="6"></circle>
+      <path class="torso" d="M22 30 L46 36 L80 38"></path>
+      <path class="arm" d="M30 34 L26 56"></path>
+      <path class="arm" d="M40 36 L36 60"></path>
+      <path class="leg" d="M56 38 L52 64"></path>
+      <path class="leg" d="M66 38 L64 66"></path>
       <path d="M8 72 H88"></path>
     </svg>
   `,
   pushup: `
-    <svg viewBox="0 0 96 96" aria-hidden="true">
-      <circle cx="22" cy="30" r="6"></circle>
-      <path d="M28 34 L48 40"></path>
-      <path d="M48 40 L78 44"></path>
-      <path d="M40 42 L34 62"></path>
-      <path d="M58 44 L56 68"></path>
+    <svg class="icon pushup" viewBox="0 0 96 96" aria-hidden="true">
+      <circle class="joint" cx="22" cy="30" r="6"></circle>
+      <path class="torso" d="M28 34 L52 40 L80 44"></path>
+      <path class="arm" d="M34 38 L30 60"></path>
+      <path class="arm" d="M44 40 L40 64"></path>
+      <path class="leg" d="M60 44 L58 68"></path>
+      <path class="leg" d="M68 44 L70 70"></path>
       <path d="M10 74 H86"></path>
     </svg>
   `,
   situp: `
-    <svg viewBox="0 0 96 96" aria-hidden="true">
-      <circle cx="30" cy="28" r="6"></circle>
-      <path d="M34 34 L52 48"></path>
-      <path d="M52 48 L70 56"></path>
-      <path d="M40 52 L30 68"></path>
+    <svg class="icon situp" viewBox="0 0 96 96" aria-hidden="true">
+      <circle class="joint" cx="30" cy="28" r="6"></circle>
+      <path class="torso" d="M34 34 L52 48 L72 54"></path>
+      <path class="arm" d="M40 38 L50 30"></path>
+      <path class="leg" d="M40 52 L30 68"></path>
+      <path class="leg" d="M54 56 L44 70"></path>
       <path d="M12 74 H86"></path>
     </svg>
   `,
   squat: `
-    <svg viewBox="0 0 96 96" aria-hidden="true">
-      <circle cx="48" cy="18" r="7"></circle>
-      <path d="M48 26 L48 46"></path>
-      <path d="M48 46 L30 56"></path>
-      <path d="M48 46 L66 56"></path>
+    <svg class="icon squat" viewBox="0 0 96 96" aria-hidden="true">
+      <circle class="joint" cx="48" cy="18" r="7"></circle>
+      <path class="torso" d="M48 26 L48 44"></path>
+      <path class="arm" d="M48 34 L36 30"></path>
+      <path class="arm" d="M48 34 L60 30"></path>
+      <path class="leg" d="M48 44 L30 58"></path>
+      <path class="leg" d="M48 44 L66 58"></path>
       <path d="M34 58 L30 72"></path>
       <path d="M62 58 L66 72"></path>
       <path d="M16 78 H80"></path>
     </svg>
   `,
   lunge: `
-    <svg viewBox="0 0 96 96" aria-hidden="true">
-      <circle cx="32" cy="20" r="7"></circle>
-      <path d="M32 28 L36 46"></path>
-      <path d="M36 46 L60 52"></path>
-      <path d="M34 46 L26 72"></path>
+    <svg class="icon lunge" viewBox="0 0 96 96" aria-hidden="true">
+      <circle class="joint" cx="32" cy="20" r="7"></circle>
+      <path class="torso" d="M32 28 L38 46"></path>
+      <path class="arm" d="M34 34 L22 38"></path>
+      <path class="arm" d="M36 34 L50 36"></path>
+      <path class="leg" d="M38 46 L62 52"></path>
+      <path class="leg" d="M36 46 L26 72"></path>
       <path d="M14 78 H88"></path>
     </svg>
   `,
   back: `
-    <svg viewBox="0 0 96 96" aria-hidden="true">
-      <circle cx="26" cy="28" r="6"></circle>
-      <path d="M30 34 C40 42 58 48 72 44"></path>
-      <path d="M34 40 L30 62"></path>
-      <path d="M56 46 L62 68"></path>
+    <svg class="icon back" viewBox="0 0 96 96" aria-hidden="true">
+      <circle class="joint" cx="26" cy="28" r="6"></circle>
+      <path class="torso" d="M30 34 C40 42 58 48 72 44"></path>
+      <path class="arm" d="M34 40 L28 60"></path>
+      <path class="arm" d="M46 44 L40 66"></path>
+      <path class="leg" d="M56 46 L62 68"></path>
+      <path class="leg" d="M66 46 L74 70"></path>
       <path d="M14 74 H82"></path>
     </svg>
   `,
   climber: `
-    <svg viewBox="0 0 96 96" aria-hidden="true">
-      <circle cx="22" cy="22" r="6"></circle>
-      <path d="M28 26 L44 36"></path>
-      <path d="M44 36 L70 30"></path>
-      <path d="M38 38 L26 56"></path>
-      <path d="M52 38 L58 62"></path>
+    <svg class="icon climber" viewBox="0 0 96 96" aria-hidden="true">
+      <circle class="joint" cx="22" cy="22" r="6"></circle>
+      <path class="torso" d="M28 26 L44 36"></path>
+      <path class="arm" d="M30 30 L18 36"></path>
+      <path class="arm" d="M40 36 L54 30"></path>
+      <path class="leg" d="M38 38 L26 56"></path>
+      <path class="leg" d="M52 38 L58 62"></path>
       <path d="M12 74 H84"></path>
     </svg>
   `,
   stretch: `
-    <svg viewBox="0 0 96 96" aria-hidden="true">
-      <circle cx="30" cy="18" r="6"></circle>
-      <path d="M30 24 L50 32"></path>
-      <path d="M50 32 L70 24"></path>
-      <path d="M42 36 L30 60"></path>
+    <svg class="icon stretch" viewBox="0 0 96 96" aria-hidden="true">
+      <circle class="joint" cx="30" cy="18" r="6"></circle>
+      <path class="torso" d="M30 24 L52 34"></path>
+      <path class="arm" d="M40 28 L60 18"></path>
+      <path class="arm" d="M40 30 L58 36"></path>
+      <path class="leg" d="M42 38 L30 60"></path>
+      <path class="leg" d="M56 40 L46 62"></path>
       <path d="M12 74 H84"></path>
     </svg>
   `,
   sleep: `
-    <svg viewBox="0 0 96 96" aria-hidden="true">
+    <svg class="icon sleep" viewBox="0 0 96 96" aria-hidden="true">
       <path d="M16 58 C28 46 46 42 60 46 C70 48 78 56 80 64"></path>
-      <circle cx="20" cy="54" r="6"></circle>
-      <path d="M26 56 L42 60"></path>
+      <circle class="joint" cx="20" cy="54" r="6"></circle>
+      <path class="arm" d="M26 56 L42 60"></path>
       <path d="M10 76 H86"></path>
       <path d="M64 16 H76"></path>
       <path d="M60 24 H80"></path>
@@ -150,6 +162,7 @@ function updateDisplay() {
 
   el.currentRound.textContent = roundName;
   el.exerciseIcon.innerHTML = iconFor(roundName, state.phase);
+  el.exerciseIcon.dataset.phase = state.phase;
   el.timer.textContent = formatTime(state.remaining);
   el.roundMeta.textContent = `${roundNumber} von ${totalRounds}`;
   el.toggleBtn.textContent = state.running ? "Pause" : "Start";
@@ -395,9 +408,16 @@ function flashBorder() {
 }
 
 function notifyTransition() {
-  vibrateShort();
+  vibrateStrong();
   playClick();
+  setTimeout(playClick, 120);
   flashBorder();
+}
+
+function vibrateStrong() {
+  if (navigator.vibrate) {
+    navigator.vibrate([80, 60, 80]);
+  }
 }
 
 function unlockAudioOnGesture() {
