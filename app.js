@@ -16,6 +16,81 @@ const EXERCISES = [
   "Arme dehnen",
 ];
 
+const ICONS = {
+  plank: `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="18" cy="16" r="6"></circle>
+      <path d="M22 22 L40 30 L56 30"></path>
+      <path d="M30 28 L24 44"></path>
+      <path d="M38 30 L34 46"></path>
+      <path d="M10 48 H58"></path>
+    </svg>
+  `,
+  pushup: `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="16" cy="20" r="5"></circle>
+      <path d="M21 24 L40 28 L54 28"></path>
+      <path d="M30 30 L26 42"></path>
+      <path d="M38 30 L34 44"></path>
+      <path d="M8 48 H56"></path>
+    </svg>
+  `,
+  situp: `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="24" cy="20" r="5"></circle>
+      <path d="M28 24 L40 34"></path>
+      <path d="M30 36 L22 46"></path>
+      <path d="M40 34 L52 38"></path>
+      <path d="M10 50 H54"></path>
+    </svg>
+  `,
+  squat: `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="12" r="6"></circle>
+      <path d="M32 18 L32 34"></path>
+      <path d="M32 34 L20 44"></path>
+      <path d="M32 34 L44 44"></path>
+      <path d="M12 52 H52"></path>
+    </svg>
+  `,
+  lunge: `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="28" cy="14" r="6"></circle>
+      <path d="M28 20 L32 34"></path>
+      <path d="M32 34 L46 40"></path>
+      <path d="M30 34 L22 50"></path>
+      <path d="M10 52 H54"></path>
+    </svg>
+  `,
+  back: `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="20" cy="20" r="5"></circle>
+      <path d="M24 24 C30 28 38 32 46 28"></path>
+      <path d="M26 28 L20 44"></path>
+      <path d="M38 30 L42 46"></path>
+      <path d="M10 50 H54"></path>
+    </svg>
+  `,
+  climber: `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="18" cy="16" r="5"></circle>
+      <path d="M22 20 L34 28 L48 22"></path>
+      <path d="M30 28 L22 40"></path>
+      <path d="M36 28 L40 44"></path>
+      <path d="M8 48 H56"></path>
+    </svg>
+  `,
+  stretch: `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="22" cy="16" r="5"></circle>
+      <path d="M22 22 L34 30"></path>
+      <path d="M34 30 L50 26"></path>
+      <path d="M30 34 L22 48"></path>
+      <path d="M10 50 H54"></path>
+    </svg>
+  `,
+};
+
 const state = {
   rounds: [],
   workDuration: 50,
@@ -32,13 +107,11 @@ const el = {
   roundCount: document.getElementById("roundCount"),
   workDuration: document.getElementById("workDuration"),
   restDuration: document.getElementById("restDuration"),
-  rounds: document.getElementById("rounds"),
-  phaseBadge: document.getElementById("phaseBadge"),
   currentRound: document.getElementById("currentRound"),
+  exerciseIcon: document.getElementById("exerciseIcon"),
   timer: document.getElementById("timer"),
   roundMeta: document.getElementById("roundMeta"),
   toggleBtn: document.getElementById("toggleBtn"),
-  skipBtn: document.getElementById("skipBtn"),
   resetBtn: document.getElementById("resetBtn"),
 };
 
@@ -52,37 +125,15 @@ function formatTime(seconds) {
   return `${m}:${s}`;
 }
 
-function renderRounds() {
-  el.rounds.innerHTML = "";
-  state.rounds.forEach((name, index) => {
-    const input = document.createElement("input");
-    input.type = "text";
-    input.value = name;
-    input.placeholder = `Übung ${index + 1}`;
-    input.addEventListener("input", (event) => {
-      state.rounds[index] = event.target.value.trim() || `Übung ${index + 1}`;
-      updateDisplay();
-    });
-    el.rounds.appendChild(input);
-  });
-}
-
 function updateDisplay() {
-  const phaseLabel = {
-    idle: "Bereit",
-    work: "Runde",
-    rest: "Pause",
-    finished: "Fertig",
-  }[state.phase];
-
   const roundName = state.rounds[state.currentRoundIndex] || "Workout";
   const totalRounds = state.rounds.length;
   const roundNumber = Math.min(state.currentRoundIndex + 1, totalRounds);
 
-  el.phaseBadge.textContent = phaseLabel;
   el.currentRound.textContent = roundName;
+  el.exerciseIcon.innerHTML = iconFor(roundName);
   el.timer.textContent = formatTime(state.remaining);
-  el.roundMeta.textContent = `Runde ${roundNumber} von ${totalRounds}`;
+  el.roundMeta.textContent = `${roundNumber} von ${totalRounds}`;
   el.toggleBtn.textContent = state.running ? "Pause" : "Start";
 }
 
@@ -151,17 +202,18 @@ function tick() {
 }
 
 function advance() {
+  if (state.phase === "work" || state.phase === "rest") {
+    vibrateShort();
+  }
   switch (state.phase) {
     case "idle":
       state.phase = "work";
       state.remaining = state.workDuration;
-      vibrateShort();
       break;
     case "work":
       if (state.restDuration > 0) {
         state.phase = "rest";
         state.remaining = state.restDuration;
-        vibrateShort();
       } else {
         moveToNextRoundOrFinish();
       }
@@ -180,7 +232,6 @@ function moveToNextRoundOrFinish() {
     state.currentRoundIndex += 1;
     state.phase = "work";
     state.remaining = state.workDuration;
-    vibrateShort();
   } else {
     state.phase = "finished";
     state.remaining = 0;
@@ -197,7 +248,6 @@ function updateRoundCount(newValue) {
   } else if (count < state.rounds.length) {
     state.rounds = state.rounds.slice(0, count);
   }
-  renderRounds();
   resetSession();
 }
 
@@ -245,16 +295,11 @@ function bindInputs() {
   });
 
   el.toggleBtn.addEventListener("click", toggleRunning);
-  el.skipBtn.addEventListener("click", () => {
-    advance();
-    updateDisplay();
-  });
   el.resetBtn.addEventListener("click", resetSession);
 }
 
 function init() {
   seedExercises();
-  renderRounds();
   initSteppers();
   bindInputs();
   updateDisplay();
@@ -273,9 +318,23 @@ function pickExercise(index) {
   return pool[index % pool.length];
 }
 
+function iconFor(name) {
+  const lowered = name.toLowerCase();
+  if (lowered.includes("plank") || lowered.includes("stütz")) return ICONS.plank;
+  if (lowered.includes("liegest")) return ICONS.pushup;
+  if (lowered.includes("situp") || lowered.includes("sitz")) return ICONS.situp;
+  if (lowered.includes("kniebeuge")) return ICONS.squat;
+  if (lowered.includes("ausfallschritte")) return ICONS.lunge;
+  if (lowered.includes("bergsteiger")) return ICONS.climber;
+  if (lowered.includes("superman") || lowered.includes("rücken")) return ICONS.back;
+  if (lowered.includes("dehnen")) return ICONS.stretch;
+  if (lowered.includes("hüft") || lowered.includes("brücke")) return ICONS.back;
+  return ICONS.stretch;
+}
+
 function vibrateShort() {
   if (navigator.vibrate) {
-    navigator.vibrate(120);
+    navigator.vibrate(100);
   }
 }
 

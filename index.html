@@ -8,26 +8,17 @@
 </head>
 <body>
   <div class="app">
-    <header class="hero minimal">
-      <div>
-        <p class="eyebrow">Workout Timer</p>
-        <h1>Intervalltraining kompakt</h1>
-        <p class="sub">Zeit, Übung und Buttons sofort sichtbar. Setup folgt darunter.</p>
-      </div>
-    </header>
-
     <main class="layout">
       <section class="panel run">
         <div class="status">
-          <div class="badge" id="phaseBadge">Bereit</div>
           <div class="round-name" id="currentRound">Übung 1</div>
+          <div class="exercise-icon" id="exerciseIcon" aria-hidden="true"></div>
           <div class="timer" id="timer">00:00</div>
-          <div class="meta" id="roundMeta">Runde 1 von 10</div>
+          <div class="meta" id="roundMeta">1 von 10</div>
         </div>
 
         <div class="controls">
           <button id="toggleBtn" class="primary">Start</button>
-          <button id="skipBtn">Weiter</button>
           <button id="resetBtn">Reset</button>
         </div>
       </section>
@@ -59,11 +50,6 @@
             <input id="restDuration" type="number" min="0" max="1800" step="5" value="10" />
             <button type="button" data-step-rest="5">+</button>
           </div>
-        </div>
-
-        <div class="field">
-          <label>Runden‑Namen</label>
-          <div class="rounds" id="rounds"></div>
         </div>
       </section>
     </main>
